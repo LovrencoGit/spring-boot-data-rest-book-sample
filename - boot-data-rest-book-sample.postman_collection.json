@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "20116379-6ef6-462d-b355-afe1b9f2c591",
+		"name": "> boot-data-rest-book-sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7755742"
+	},
+	"item": [
+		{
+			"name": "/rest/book",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Manuale di Java di Loris\",\r\n    \"author\": \"http://localhost:8080/rest/authors/2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/rest/author",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Fabio Pasqua\",\r\n    \"status\": \"ACTIVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/rest/author",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"author"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "author SAVE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Fabio Pasqua - EDIT\",\r\n    \"status\": \"ACTIVE\",\r\n\r\n    \"books\": [\r\n        {\"id\": 2, \"title\": \"libro 1 di FP - EDIT\"},\r\n        {\"id\": 3, \"title\": \"libro 2 di FP - EDIT\"}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/author",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"author"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK - init",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Fabio Pasqua\",\r\n    \"status\": \"ACTIVE\",\r\n\r\n    \"books\": [\r\n        {\"title\": \"libro 1 di FP\"},\r\n        {\"title\": \"libro 2 di FP\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/author",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 May 2023 13:01:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Fabio Pasqua\",\n    \"books\": [\n        {\n            \"id\": 2,\n            \"authorFk\": 1,\n            \"title\": \"libro 1 di FP\"\n        },\n        {\n            \"id\": 3,\n            \"authorFk\": 1,\n            \"title\": \"libro 2 di FP\"\n        }\n    ],\n    \"status\": \"ACTIVE\"\n}"
+				},
+				{
+					"name": "OK - edit",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Fabio Pasqua - EDIT\",\r\n    \"status\": \"ACTIVE\",\r\n\r\n    \"books\": [\r\n        {\"id\": 2, \"title\": \"libro 1 di FP - EDIT\"},\r\n        {\"id\": 3, \"title\": \"libro 2 di FP - EDIT\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/author",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 May 2023 13:02:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Fabio Pasqua - EDIT\",\n    \"books\": [\n        {\n            \"id\": 2,\n            \"authorFk\": 1,\n            \"title\": \"libro 1 di FP - EDIT\"\n        },\n        {\n            \"id\": 3,\n            \"authorFk\": 1,\n            \"title\": \"libro 2 di FP - EDIT\"\n        }\n    ],\n    \"status\": \"ACTIVE\"\n}"
+				}
+			]
+		},
+		{
+			"name": "author INIT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n    \"name\": \"Fabio Pasqua\",\r\n    \"status\": \"ACTIVE\",\r\n\r\n    \"books\": [\r\n        {\"title\": \"libro 1 di FP\"},\r\n        {\"title\": \"libro 2 di FP\"}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/author",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"author"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
